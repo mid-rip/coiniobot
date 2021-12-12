@@ -1,0 +1,1 @@
+cg.get_coin_by_id() put id, retun print(desc['description]['en'])
