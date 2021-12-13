@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.ext import tasks
 import requests
 from requests.structures import CaseInsensitiveDict
 import json
@@ -8,18 +9,25 @@ from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
 import os
 from dotenv import load_dotenv
+import asyncio
+
 
 load_dotenv()
 
 client = commands.Bot(command_prefix=">")
 
+btcprice = cg.get_coin_by_id("bitcoin")
+
+
 #Setting Game
 @client.event
 async def on_ready ():
     game = discord.Game("with cool nft's")
-    #using btc price, defined above to be seen in game activity
-    activity = discord.Activity(name='eth price ($ USD)', type=discord.ActivityType.watching)
+   #using btc price, defined above to be seen in game activity
+    activity = discord.Activity(name='btc price ($%s USD)' % btcprice, type=discord.ActivityType.watching)
     await client.change_presence(status=discord.Game, activity=activity)
+
+
 
 initial_extensions = []
 
@@ -33,4 +41,4 @@ if __name__ == '__main__':
 
 print(initial_extensions)
 
-client.run(os.getenv("BOT_TOKEN"))
+client.run("OTE5MDkyMTIzNTE5ODQwMjk2.YbQxPg.idQWusFDIgIPa6CKrfXIxPKaO-g")

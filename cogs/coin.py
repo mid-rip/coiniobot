@@ -18,6 +18,7 @@ class Coin(commands.Cog):
     async def coin(self, ctx, arg1):
         coin = cg.get_coin_by_id(arg1)
         thumb = (coin['image']['large'])
+        #thumb = ("https://api.chart-img.com/v1/tradingview/mini-chart?symbol=ETHUSD")
         desc = (coin['description']['en'])
         symbol = (coin['symbol'])
         name = (coin['name'])
@@ -32,7 +33,6 @@ class Coin(commands.Cog):
         reddit_subs = (coin['community_data']['reddit_subscribers'])  
         usd_price_change_percent_24h = (coin['market_data']['price_change_percentage_24h'])  
         trust_score = (coin['tickers'][0]['trust_score'])
-
 
         embed=discord.Embed(title=name, url=coinsite, description="Genesis block: %s " % genesis, color=0x8652ff)
         embed.set_author(name="Coinio", url="https://www.beemo.best", icon_url="https://images-ext-2.discordapp.net/external/xoxzwM3gCgR8HHCSXKh9ckQeNFDX-f8QBoruR631Udk/https/media.discordapp.net/attachments/915801233233707008/919457793600258088/i01_logo_small_icon_only_inverted_1.png")
