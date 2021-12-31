@@ -107,4 +107,4 @@ if __name__ == '__main__':
 
 print(initial_extensions)
 
-client.run("OTE5MDkyMTIzNTE5ODQwMjk2.YbQxPg.idQWusFDIgIPa6CKrfXIxPKaO-g")
+client.run(INSERT TOKEN)
